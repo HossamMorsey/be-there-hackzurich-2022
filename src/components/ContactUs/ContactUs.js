@@ -7,7 +7,7 @@ const ContactUs = () => {
     <div>
       <h2> Contact Us</h2>
 
-      <h3>TAKE THE SILK ROAD TO DIGITIZING YOUR BUSINESS GROWTH</h3>
+      <h3>Follow Us on Social Media</h3>
     </div>
   );
 };
