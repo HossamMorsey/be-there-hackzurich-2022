@@ -3,11 +3,8 @@ import { Select, Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import "./Registration.scss";
 
-const { Option } = Select;
-
 const Registration = () => {
   const onFinish = (values) => {
-    console.log("Values:", values);
     console.log("Received values of form: ", values);
   };
 
@@ -35,8 +32,8 @@ const Registration = () => {
           ]}
         >
           <Select placeholder="Tell us who you are !" allowClear>
-            <Option value="individual ">Individual </Option>
-            <Option value="Organization">Organization</Option>
+            <Select.Option value="individual">Individual </Select.Option>
+            <Select.Option value="Organization">Organization</Select.Option>
           </Select>
         </Form.Item>
 
@@ -65,7 +62,38 @@ const Registration = () => {
         </Form.Item>
 
         <Form.Item
+          name="interests"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Select placeholder="Select Interests" mode="multiple" allowClear>
+            <Select.Option value="Culture">Culture </Select.Option>
+            <Select.Option value="Human Rights">Human Rights</Select.Option>
+            <Select.Option value="Agriculture">Agriculture </Select.Option>
+            <Select.Option value="Children and Youth">
+              Children and Youth
+            </Select.Option>
+            <Select.Option value="Community Development">
+              Community Development{" "}
+            </Select.Option>
+            <Select.Option value="Education">Education</Select.Option>
+            <Select.Option value="Environment">Environment </Select.Option>
+            <Select.Option value="Health">Health</Select.Option>
+            <Select.Option value="Wildlife Protection">
+              Wildlife Protection{" "}
+            </Select.Option>
+            <Select.Option value="Women’s Empowerment">
+              Women’s Empowerment
+            </Select.Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
           name="email"
+          allowClear
           rules={[
             {
               type: "email",
@@ -73,18 +101,24 @@ const Registration = () => {
             },
           ]}
         >
-          <Input type="email" placeholder="E-Mail" />
+          <Input type="email" allowClear placeholder="E-Mail" />
         </Form.Item>
         <Form.Item
           name="password"
+          allowClear
           rules={[
             {
-              required: true,
-              message: "Please input your Password!",
+              // required: true,
+              // message: "Please input your Password!",
             },
           ]}
         >
-          <Input type="password" placeholder="Password" />
+          <Input
+            type="password"
+            allowClear
+            defaultValue={""}
+            placeholder="Password"
+          />
         </Form.Item>
 
         <Form.Item
